@@ -110,6 +110,7 @@
   position: relative;
   left: 50%;
   transform: translateX(-50%);
+  touch-action: pan-x;
 }
 
 .carouselInner {
@@ -120,10 +121,26 @@
   cursor: grab;
   will-change: transform;
   padding: 0 0 0 2rem;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 .carouselInner:active {
   cursor: grabbing;
+}
+
+.carouselInner.dragging {
+  cursor: grabbing;
+}
+
+.carouselInner.dragging * {
+  pointer-events: none;
+}
+
+.carouselInner.dragging * {
+  pointer-events: none;
 }
 
 .projectCard {

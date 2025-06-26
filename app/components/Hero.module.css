@@ -1,0 +1,240 @@
+.hero {
+  min-height: calc(90vh + 120px); /* Match padding-top to ensure space above logo */
+  background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 2rem;
+  padding-top: 120px; /* Ensure space for logo above overlay */
+  margin-top: -70px; /* Pull up to connect with navbar */
+}
+
+.overlay {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 4rem 2rem;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  width: 100%;
+  position: relative;
+  margin-top: 120px; /* Space for the logo */
+}
+
+.title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #004d40;
+  line-height: 1.2;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.subtitle {
+  font-size: 1.3rem;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  color: #00796b;
+  line-height: 1.6;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.ctaButton {
+  padding: 1rem 2rem;
+  background-color: #00796b;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 121, 107, 0.3);
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.ctaButton:hover {
+  background-color: #004d40;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 121, 107, 0.4);
+}
+
+.heroLogo {
+  position: absolute;
+  top: -156px; /* Half of logo height (225px / 2) */
+  left: 53%;
+  transform: translateX(-50%);
+  width: 450px;
+  height: 225px;
+  z-index: 10;
+}
+
+/* Tablet styles */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .hero {
+    padding: 2rem 3rem;
+    padding-top: 100px;
+    min-height: calc(85vh + 100px); /* Match padding-top */
+  }
+  
+  .overlay {
+    margin-top: 100px;
+    border-radius: 18px;
+    padding: 3rem 2rem;
+  }
+  
+  .heroLogo {
+    width: 350px;
+    height: 175px;
+    top: -130px;
+  }
+  
+  .title {
+    font-size: 3rem;
+  }
+  
+  .subtitle {
+    font-size: 1.2rem;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .hero {
+    min-height: calc(80vh + 90px); /* Match padding-top */
+    padding: 1.5rem;
+    padding-top: 90px;
+  }
+  
+  .overlay {
+    padding: 2.5rem 1.5rem;
+    border-radius: 15px;
+    margin-top: 80px;
+  }
+  
+  .heroLogo {
+    width: 280px;
+    height: 140px;
+    top: -105px; 
+  }
+  
+  .title {
+    font-size: 2.5rem;
+  }
+  
+  .subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .ctaButton {
+    font-size: 1rem;
+    padding: 0.9rem 1.8rem;
+  }
+}
+
+/* Small mobile styles */
+@media (max-width: 480px) {
+  .hero {
+    min-height: calc(75vh + 80px); /* Match padding-top */
+    padding: 1rem;
+    padding-top: 80px;
+  }
+  
+  .overlay {
+    padding: 2rem 1rem;
+    margin-top: 70px;
+    border-radius: 12px;
+  }
+  
+  .heroLogo {
+    width: 220px;
+    height: 110px;
+    top: -80px; 
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .ctaButton {
+    font-size: 0.9rem;
+    padding: 0.8rem 1.5rem;
+  }
+}
+
+/* Extra small mobile styles */
+@media (max-width: 375px) {
+  .hero {
+    min-height: calc(70vh + 70px); /* Match padding-top */
+    padding: 0.75rem;
+    padding-top: 70px;
+  }
+  
+  .overlay {
+    padding: 1.5rem 0.75rem;
+    margin-top: 60px;
+    border-radius: 10px;
+  }
+  
+  .heroLogo {
+    width: 180px;
+    height: 90px;
+    top: -68px;
+  }
+  
+  .title {
+    font-size: 1.75rem;
+  }
+  
+  .subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .ctaButton {
+    font-size: 0.85rem;
+    padding: 0.7rem 1.3rem;
+  }
+}
+
+/* Ultra small mobile styles */
+@media (max-width: 320px) {
+  .hero {
+    min-height: calc(65vh + 60px); /* Match padding-top */
+    padding: 0.5rem;
+    padding-top: 60px;
+  }
+  
+  .overlay {
+    padding: 1.25rem 0.5rem;
+    margin-top: 50px;
+    border-radius: 8px;
+  }
+  
+  .heroLogo {
+    width: 150px;
+    height: 75px;
+    top: -54px; 
+  }
+  
+  .title {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .subtitle {
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+  }
+  
+  .ctaButton {
+    font-size: 0.8rem;
+    padding: 0.6rem 1.1rem;
+  }
+}

@@ -2,6 +2,7 @@
 
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
+import Hero from '@/components/Hero';
 import styles from '@/styles/HomePage.module.css';
 import VideoSlider from '@/components/videoSlider';
 import Image from 'next/image';
@@ -52,25 +53,7 @@ export default function LocalePage() {
       <NavBar />
       <main className={styles.main}>
         {/* Hero Section */}
-        <section id="home" className={styles.hero}>
-          <div className={styles.overlay}>
-            <div className={styles.heroLogo}>
-            <Image src="/cavall.png" width={450} height={225} alt="Rodeo Studio Logo" />
-            </div>
-            <h1 className={styles.title}>{t('home.title')}</h1>
-            <p className={styles.subtitle}>
-              {t('home.subtitle')} {t('home.subtitle_long')}
-            </p>
-            <button className={styles.ctaButton} onClick={() => {
-              const contactSection = document.getElementById('contact');
-              if (contactSection) {
-                contactSection.scrollIntoView({ behavior: 'smooth' });
-              }
-            }}>
-              {t('home.cta')}
-            </button>
-          </div>
-        </section>
+        <Hero />
 
         {/* Featured Projects Section */}
         <section id="projects" className={styles.projectsSection}>

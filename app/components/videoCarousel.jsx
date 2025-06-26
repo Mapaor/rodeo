@@ -30,7 +30,7 @@ export default function VideoCarousel() {
         <iframe
           src={videos[index].url}
           title={videos[index].title}
-          frameBorder="0"
+          style={{ border: 0 }}
           allow="autoplay; fullscreen; picture-in-picture"
           allowFullScreen
           className={styles.video}

@@ -3,59 +3,7 @@
   font-family: 'Helvetica Neue', sans-serif;
   color: #004d40;
   background-color: #f8fcfc;
-}
-
-.hero {
-  height: 90vh;
-  background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.overlay {
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 4rem 2rem;
-  text-align: center;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  max-width: 800px;
-}
-
-.title {
-  font-size: 3.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  color: #004d40;
-  line-height: 1.2;
-}
-
-.subtitle {
-  font-size: 1.3rem;
-  max-width: 600px;
-  margin: 0 auto 2rem;
-  color: #00796b;
-  line-height: 1.6;
-}
-
-.ctaButton {
-  padding: 1rem 2rem;
-  background-color: #00796b;
-  color: #fff;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  font-size: 1.1rem;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 121, 107, 0.3);
-}
-
-.ctaButton:hover {
-  background-color: #004d40;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 121, 107, 0.4);
+  padding-top: 70px; /* Account for fixed navbar */
 }
 
 .section {
@@ -229,18 +177,7 @@
   margin-bottom: 3rem;
 }
 
-.heroLogo {
-  position: absolute;
-  top: 75px;
-  left: 50%;
-  transform: translateX(-47%);
-}
-
 @media (max-width: 768px) {
-  .title {
-    font-size: 2.5rem;
-  }
-  
   .aboutContent {
     grid-template-columns: 1fr;
     text-align: center;

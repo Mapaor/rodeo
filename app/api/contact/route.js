@@ -46,7 +46,7 @@ export async function POST(request) {
             </tr>
             <tr>
               <td style="padding: 0 40px 28px 40px; text-align: center; color: #aaa; font-size: 1.05em;">
-                <p style="margin: 28px 0 0 0;">Aquest correu ha estat generat automàticament des de <a href="https://rodeostudio.net" style="color: #0070f3; text-decoration: none; font-weight: 500;">rodeostudio.net</a></p>
+                <p style="margin: 28px 0 0 0;">Aquest correu ha estat generat automàticament des de <a href="https://rodeostudio.vercel.app" style="color: #0070f3; text-decoration: none; font-weight: 500;">rodeostudio.net</a></p>
               </td>
             </tr>
           </table>

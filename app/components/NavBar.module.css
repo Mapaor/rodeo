@@ -6,12 +6,23 @@
   background-color: #e0f7fa; /* pastel blue */
   color: #004d40; /* dark green */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+
+.navbarHidden {
+  transform: translateY(-100%);
 }
 
 .logo {
   font-size: 1.8rem;
   font-weight: bold;
   font-family: 'Helvetica Neue', sans-serif;
+  z-index: 1001;
 }
 
 .navRight {
@@ -38,4 +49,133 @@
 
 .link:hover {
   color: #00796b; /* lighter green */
+}
+
+/* Hamburger Menu Button */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1001;
+}
+
+.hamburgerLine {
+  width: 25px;
+  height: 3px;
+  background-color: #004d40;
+  margin: 3px 0;
+  transition: 0.3s;
+  transform-origin: center;
+}
+
+.hamburgerLineActive:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburgerLineActive:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburgerLineActive:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Mobile Menu */
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 280px;
+  height: 100vh;
+  background-color: #e0f7fa;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+  transition: right 0.3s ease;
+  z-index: 999;
+  padding-top: 80px;
+}
+
+.mobileMenuOpen {
+  right: 0;
+}
+
+.mobileNavLinks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobileNavLinks li {
+  border-bottom: 1px solid rgba(0, 77, 64, 0.1);
+}
+
+.mobileLink {
+  display: block;
+  padding: 1.2rem 2rem;
+  text-decoration: none;
+  color: #004d40;
+  font-size: 1.1rem;
+  font-family: 'Helvetica Neue', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.mobileLink:hover {
+  background-color: #b2ebf2;
+  color: #00796b;
+}
+
+.mobileLanguageSelector {
+  padding: 1.2rem 2rem;
+  border-bottom: 1px solid rgba(0, 77, 64, 0.1);
+}
+
+/* Mobile Menu Overlay */
+.mobileMenuOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem 1.5rem;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+  }
+  
+  .navRight {
+    display: none;
+  }
+  
+  .hamburger {
+    display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0.75rem 1rem;
+  }
+  
+  .logo {
+    font-size: 1.3rem;
+  }
+  
+  .mobileMenu {
+    width: 100vw;
+    right: -100vw;
+  }
+  
+  .mobileMenuOpen {
+    right: 0;
+  }
 }

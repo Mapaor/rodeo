@@ -48,8 +48,11 @@
     "name": "Your Name",
     "email": "Your Email",
     "project": "Project Type",
-    "message": "Tell us about your project...",
-    "send": "Send Message"
+    "message": "Your Message",
+    "send": "Send",
+    "sending": "Sending...",
+    "success": "Message sent!",
+    "error": "Error sending message"
   },
   "footer": {
     "slogan": "Creating compelling visual narratives that connect brands with their audiences.",

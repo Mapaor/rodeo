@@ -48,8 +48,11 @@
     "name": "El teu Nom",
     "email": "El teu Email",
     "project": "Tipus de Projecte",
-    "message": "Explica'ns sobre el teu projecte...",
-    "send": "Enviar Missatge"
+    "message": "El teu Missatge",
+    "send": "Envia",
+    "sending": "Enviant...",
+    "success": "Missatge enviat!",
+    "error": "Error enviant missatge"
   },
   "footer": {
     "slogan": "Creant narratives visuals que connecten marques amb el seu públic.",

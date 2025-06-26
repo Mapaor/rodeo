@@ -48,8 +48,11 @@
     "name": "Tu Nombre",
     "email": "Tu Email",
     "project": "Tipo de Proyecto",
-    "message": "Cuéntanos sobre tu proyecto...",
-    "send": "Enviar Mensaje"
+    "message": "Tu Mensaje",
+    "send": "Enviar",
+    "sending": "Enviando...",
+    "success": "¡Mensaje enviado!",
+    "error": "Error al enviar el mensaje"
   },
   "footer": {
     "slogan": "Creando narrativas visuales que conectan marcas con su público.",

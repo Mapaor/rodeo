@@ -1,0 +1,141 @@
+{
+  "home": {
+    "title": "Bienvenido a Rodeo Studio",
+    "subtitle": "Damos vida a las historias con producción audiovisual creativa y profesional.",
+    "subtitle_long": "Nos especializamos en crear narrativas visuales convincentes que conectan con las audiencias.",
+    "cta": "Comienza tu Proyecto"
+  },
+  "nav": {
+    "home": "Inicio",
+    "projects": "Proyectos",
+    "about": "Sobre nosotros",
+    "services": "Servicios",
+    "contact": "Contacto"
+  },
+  "projects": {
+    "title": "Proyectos Destacados",
+    "subtitle": "Explora nuestros últimos trabajos creativos que muestran diversos enfoques narrativos"
+  },
+  "about": {
+    "title": "Sobre Rodeo Studio",
+    "text1": "Fundada en 2020, Rodeo Studio es una productora independiente que combina la pasión por el cine con una visión contemporánea. Creemos en el poder de la narrativa visual para crear conexiones significativas entre marcas y sus audiencias.",
+    "text2": "Nuestro equipo de profesionales creativos se especializa en comerciales, videoclips, documentales y contenido para redes sociales. Trabajamos estrechamente con marcas, artistas y agencias para crear piezas únicas que dejan una impresión duradera.",
+    "alt": "Equipo de Rodeo Studio"
+  },
+  "services": {
+    "title": "Nuestros Servicios",
+    "commercial": {
+      "title": "Producción de Comerciales",
+      "desc": "Comerciales de alto impacto que cuentan la historia de tu marca con creatividad y precisión."
+    },
+    "music": {
+      "title": "Videoclips Musicales",
+      "desc": "Videoclips artísticos que capturan la esencia de tu sonido y visión."
+    },
+    "documentary": {
+      "title": "Films Documentales",
+      "desc": "Documentales convincentes que exploran historias reales con profundidad y autenticidad."
+    },
+    "social": {
+      "title": "Contenido para Redes Sociales",
+      "desc": "Contenido atractivo optimizado para plataformas sociales y audiencias digitales."
+    }
+  },
+  "contact": {
+    "title": "Creemos Juntos",
+    "subtitle": "¿Listo para dar vida a tu visión? Ponte en contacto con nuestro equipo.",
+    "info": "Información de Contacto",
+    "name": "Tu Nombre",
+    "email": "Tu Email",
+    "project": "Tipo de Proyecto",
+    "message": "Cuéntanos sobre tu proyecto...",
+    "send": "Enviar Mensaje"
+  },
+  "footer": {
+    "slogan": "Creando narrativas visuales que conectan marcas con su público.",
+    "services": "Servicios",
+    "commercial": "Producción de Comerciales",
+    "music": "Videoclips Musicales",
+    "documentary": "Documentales",
+    "social": "Contenido para Redes Sociales",
+    "contact": "Contacto",
+    "follow": "Síguenos"
+  },
+  "carousel": {
+    "vimeo": "Vimeo Reel 2024",
+    "urban": "Anuncio Marca Urbana",
+    "indie": "Videoclip Indie"
+  },
+  "slider": {
+    "urban": "Campaña de Marca Urbana",
+    "maria": "Maria Rodriguez",
+    "music": "Producción de Videoclip",
+    "carlos": "Carlos Mendez",
+    "documentary": "Documental Corto",
+    "ana": "Ana Gutierrez",
+    "commercial": "Spot Comercial",
+    "david": "David Kim",
+    "brand": "Historia de Marca",
+    "sofia": "Sofia Patel"
+  },
+  "project": {
+    "notFound": "Proyecto no encontrado",
+    "returnHome": "Volver al Inicio",
+    "projectDetails": "Detalles del Proyecto",
+    "aboutProject": "Sobre el Proyecto",
+    "gallery": "Galería",
+    "backToProjects": "← Volver a Proyectos",
+    "client": "Cliente",
+    "year": "Año",
+    "duration": "Duración",
+    "category": "Categoría",
+    "director": "Director",
+    "cinematographer": "Director de Fotografía",
+    "projects": {
+      "1": {
+        "title": "Campaña de Marca Urbana",
+        "description": "Una campaña de marca urbana dinámica que muestra el estilo de vida moderno y la cultura contemporánea.",
+        "client": "UrbanLife Brand",
+        "year": "2024",
+        "duration": "2:30",
+        "category": "Comercial",
+        "director": "Maria Rodriguez",
+        "cinematographer": "Alex Thompson",
+        "fullDescription": "Esta campaña de marca urbana fue diseñada para capturar la esencia de la vida moderna en la ciudad. Rodada en múltiples localizaciones en Barcelona, el proyecto muestra la energía dinámica de la cultura urbana manteniendo una estética sofisticada que habla a las audiencias contemporáneas.\n\nEl enfoque creativo se centró en la narración auténtica, presentando personas reales en momentos genuinos que reflejan los valores de autenticidad y conexión de la marca. El estilo visual combina técnicas cinematográficas con cinematografía de estilo documental para crear una narrativa envolvente."
+      },
+      "2": {
+        "title": "Producción de Videoclip Musical",
+        "description": "Videoclip creativo con efectos visuales impresionantes y cinematografía artística.",
+        "client": "Colectivo de Artistas Indie",
+        "year": "2024",
+        "duration": "3:45",
+        "category": "Videoclip Musical",
+        "director": "Carlos Mendez",
+        "cinematographer": "Sofia Patel",
+        "fullDescription": "Una exploración artística del sonido y la visión, este videoclip musical empuja los límites creativos mientras sirve a la visión artística de los músicos presentados. El proyecto combina efectos prácticos con mejora digital para crear una experiencia visual surrealista.\n\nRodado completamente en estudio con sets construidos a medida, el video crea múltiples mundos que reflejan diferentes estados emocionales dentro de la música. La paleta de colores evoluciona a lo largo de la pieza, guiando a los espectadores a través de un viaje visual que complementa la narrativa musical."
+      },
+      "3": {
+        "title": "Documental Corto",
+        "description": "Documental emotivo que captura historias reales de comunidades locales.",
+        "client": "Fundación Cultural",
+        "year": "2024",
+        "duration": "15:00",
+        "category": "Documental",
+        "director": "Ana Gutierrez",
+        "cinematographer": "Miguel Santos",
+        "fullDescription": "Este documental corto explora el rico patrimonio cultural de las comunidades locales, enfocándose en historias que a menudo no se cuentan. A través de entrevistas íntimas y metraje observacional, la película crea un retrato de resistencia y tradición en la sociedad contemporánea.\n\nEl enfoque documental prioriza la narración auténtica, permitiendo que los sujetos compartan sus experiencias en sus propias palabras. El estilo visual es deliberadamente discreto, enfocando la atención en las historias humanas en el corazón de la narrativa."
+      },
+      "4": {
+        "title": "Spot Comercial",
+        "description": "Comercial de alto impacto con narrativa convincente y mensaje de marca fuerte.",
+        "client": "Empresa Tecnológica Global",
+        "year": "2024",
+        "duration": "1:00",
+        "category": "Comercial",
+        "director": "David Kim",
+        "cinematographer": "Elena Vasquez",
+        "fullDescription": "Un comercial de alto impacto que cuenta una historia convincente mientras entrega un mensaje de marca fuerte. El proyecto equilibra la resonancia emocional con la comunicación clara de los beneficios del producto, creando una experiencia de visualización memorable.\n\nLa estrategia creativa se centró en demostrar las aplicaciones del mundo real de la tecnología mientras mantiene la conexión humana en el centro de la narrativa. El enfoque visual combina cinematografía elegante del producto con momentos humanos cálidos."
+      }
+    }
+  }
+}

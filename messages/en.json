@@ -1,0 +1,141 @@
+{
+  "home": {
+    "title": "Welcome to Rodeo Studio",
+    "subtitle": "Bringing stories to life with creative and professional audiovisual production.",
+    "subtitle_long": "We specialize in creating compelling visual narratives that connect with audiences.",
+    "cta": "Start Your Project"
+  },
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "about": "About Us",
+    "services": "Services",
+    "contact": "Contact"
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "subtitle": "Explore our latest creative works showcasing diverse storytelling approaches"
+  },
+  "about": {
+    "title": "About Rodeo Studio",
+    "text1": "Founded in 2020, Rodeo Studio is an independent production company that combines passion for cinema with a contemporary vision. We believe in the power of visual storytelling to create meaningful connections between brands and their audiences.",
+    "text2": "Our team of creative professionals specializes in commercials, music videos, documentaries, and social media content. We work closely with brands, artists, and agencies to create unique pieces that leave a lasting impression.",
+    "alt": "Rodeo Studio team"
+  },
+  "services": {
+    "title": "Our Services",
+    "commercial": {
+      "title": "Commercial Production",
+      "desc": "High-impact commercials that tell your brand story with creativity and precision."
+    },
+    "music": {
+      "title": "Music Videos",
+      "desc": "Artistic music videos that capture the essence of your sound and vision."
+    },
+    "documentary": {
+      "title": "Documentary Films",
+      "desc": "Compelling documentaries that explore real stories with depth and authenticity."
+    },
+    "social": {
+      "title": "Social Media Content",
+      "desc": "Engaging content optimized for social platforms and digital audiences."
+    }
+  },
+  "contact": {
+    "title": "Let's Create Together",
+    "subtitle": "Ready to bring your vision to life? Get in touch with our team.",
+    "info": "Contact Information",
+    "name": "Your Name",
+    "email": "Your Email",
+    "project": "Project Type",
+    "message": "Tell us about your project...",
+    "send": "Send Message"
+  },
+  "footer": {
+    "slogan": "Creating compelling visual narratives that connect brands with their audiences.",
+    "services": "Services",
+    "commercial": "Commercial Production",
+    "music": "Music Videos",
+    "documentary": "Documentary Films",
+    "social": "Social Media Content",
+    "contact": "Contact",
+    "follow": "Follow Us"
+  },
+  "carousel": {
+    "vimeo": "Vimeo Reel 2024",
+    "urban": "Urban Brand Ad",
+    "indie": "Indie Music Video"
+  },
+  "slider": {
+    "urban": "Urban Brand Campaign",
+    "maria": "Maria Rodriguez",
+    "music": "Music Video Production",
+    "carlos": "Carlos Mendez",
+    "documentary": "Documentary Short",
+    "ana": "Ana Gutierrez",
+    "commercial": "Commercial Spot",
+    "david": "David Kim",
+    "brand": "Brand Story",
+    "sofia": "Sofia Patel"
+  },
+  "project": {
+    "notFound": "Project not found",
+    "returnHome": "Return to Home",
+    "projectDetails": "Project Details",
+    "aboutProject": "About the Project",
+    "gallery": "Gallery",
+    "backToProjects": "← Back to Projects",
+    "client": "Client",
+    "year": "Year",
+    "duration": "Duration",
+    "category": "Category",
+    "director": "Director",
+    "cinematographer": "Cinematographer",
+    "projects": {
+      "1": {
+        "title": "Urban Brand Campaign",
+        "description": "A dynamic urban brand campaign showcasing modern lifestyle and contemporary culture.",
+        "client": "UrbanLife Brand",
+        "year": "2024",
+        "duration": "2:30",
+        "category": "Commercial",
+        "director": "Maria Rodriguez",
+        "cinematographer": "Alex Thompson",
+        "fullDescription": "This urban brand campaign was designed to capture the essence of modern city living. Shot across multiple locations in Barcelona, the project showcases the dynamic energy of urban culture while maintaining a sophisticated aesthetic that speaks to contemporary audiences.\n\nThe creative approach focused on authentic storytelling, featuring real people in genuine moments that reflect the brand's values of authenticity and connection. The visual style combines cinematic techniques with documentary-style cinematography to create an engaging narrative."
+      },
+      "2": {
+        "title": "Music Video Production",
+        "description": "Creative music video with stunning visual effects and artistic cinematography.",
+        "client": "Indie Artist Collective",
+        "year": "2024",
+        "duration": "3:45",
+        "category": "Music Video",
+        "director": "Carlos Mendez",
+        "cinematographer": "Sofia Patel",
+        "fullDescription": "An artistic exploration of sound and vision, this music video pushes creative boundaries while serving the artistic vision of the featured musicians. The project combines practical effects with digital enhancement to create a surreal visual experience.\n\nShot entirely in-studio with custom-built sets, the video creates multiple worlds that reflect different emotional states within the music. The color palette evolves throughout the piece, guiding viewers through a visual journey that complements the musical narrative."
+      },
+      "3": {
+        "title": "Documentary Short",
+        "description": "Emotional documentary capturing real stories of local communities.",
+        "client": "Cultural Foundation",
+        "year": "2024",
+        "duration": "15:00",
+        "category": "Documentary",
+        "director": "Ana Gutierrez",
+        "cinematographer": "Miguel Santos",
+        "fullDescription": "This documentary short explores the rich cultural heritage of local communities, focusing on stories that often go untold. Through intimate interviews and observational footage, the film creates a portrait of resilience and tradition in contemporary society.\n\nThe documentary approach prioritizes authentic storytelling, allowing subjects to share their experiences in their own words. The visual style is deliberately understated, focusing attention on the human stories at the heart of the narrative."
+      },
+      "4": {
+        "title": "Commercial Spot",
+        "description": "High-impact commercial with compelling narrative and strong brand messaging.",
+        "client": "Global Tech Company",
+        "year": "2024",
+        "duration": "1:00",
+        "category": "Commercial",
+        "director": "David Kim",
+        "cinematographer": "Elena Vasquez",
+        "fullDescription": "A high-impact commercial that tells a compelling story while delivering strong brand messaging. The project balances emotional resonance with clear communication of product benefits, creating a memorable viewing experience.\n\nThe creative strategy focused on demonstrating real-world applications of the technology while maintaining human connection at the center of the narrative. The visual approach combines sleek product cinematography with warm, human moments."
+      }
+    }
+  }
+}

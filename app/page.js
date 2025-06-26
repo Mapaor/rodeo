@@ -1,27 +1,31 @@
+'use client';
+
 import styles from '@/styles/HomePage.module.css';
 import VideoSlider from '@/components/videoSlider';
+import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 export default function Home() {
+  const t = useTranslations();
   return (
     <main className={styles.main}>
       {/* Hero Section */}
       <section id="home" className={styles.hero}>
         <div className={styles.overlay}>
-          <h1 className={styles.title}>Welcome to Rodeo Studio</h1>
+          <h1 className={styles.title}>{t('home.title')}</h1>
           <p className={styles.subtitle}>
-            Bringing stories to life with creative and professional audiovisual production. 
-            We specialize in creating compelling visual narratives that connect with audiences.
+            {t('home.subtitle')} {t('home.subtitle_long')}
           </p>
-          <button className={styles.ctaButton}>Start Your Project</button>
+          <button className={styles.ctaButton}>{t('home.cta')}</button>
         </div>
       </section>
 
       {/* Featured Projects Section */}
       <section id="projects" className={styles.projectsSection}>
         <div className={styles.projectsContent}>
-          <h2 className={styles.sectionTitle}>Featured Projects</h2>
+          <h2 className={styles.sectionTitle}>{t('projects.title')}</h2>
           <p className={styles.sectionSubtitle}>
-            Explore our latest creative works showcasing diverse storytelling approaches
+            {t('projects.subtitle')}
           </p>
         </div>
         <VideoSlider />
@@ -31,50 +35,46 @@ export default function Home() {
       <section id="about" className={styles.section}>
         <div className={styles.aboutContent}>
           <div className={styles.aboutText}>
-            <h2 className={styles.sectionTitle}>About Rodeo Studio</h2>
+            <h2 className={styles.sectionTitle}>{t('about.title')}</h2>
             <p className={styles.text}>
-              Founded in 2020, Rodeo Studio is an independent production company that combines 
-              passion for cinema with a contemporary vision. We believe in the power of visual 
-              storytelling to create meaningful connections between brands and their audiences.
+              {t('about.text1')}
             </p>
             <p className={styles.text}>
-              Our team of creative professionals specializes in commercials, music videos, 
-              documentaries, and social media content. We work closely with brands, artists, 
-              and agencies to create unique pieces that leave a lasting impression.
+              {t('about.text2')}
             </p>
           </div>
           <div className={styles.aboutImage}>
-            <img src="/about-studio.jpg" alt="Rodeo Studio team" className={styles.image} />
+            <Image src="/about-studio.jpg" alt={t('about.alt')} className={styles.image} width={500} height={333} />
           </div>
         </div>
       </section>
 
       {/* Services Section */}
       <section id="services" className={styles.section}>
-        <h2 className={styles.sectionTitle}>Our Services</h2>
+        <h2 className={styles.sectionTitle}>{t('services.title')}</h2>
         <div className={styles.servicesGrid}>
           <div className={styles.serviceCard}>
-            <h3 className={styles.serviceTitle}>Commercial Production</h3>
+            <h3 className={styles.serviceTitle}>{t('services.commercial.title')}</h3>
             <p className={styles.serviceDescription}>
-              High-impact commercials that tell your brand story with creativity and precision.
+              {t('services.commercial.desc')}
             </p>
           </div>
           <div className={styles.serviceCard}>
-            <h3 className={styles.serviceTitle}>Music Videos</h3>
+            <h3 className={styles.serviceTitle}>{t('services.music.title')}</h3>
             <p className={styles.serviceDescription}>
-              Artistic music videos that capture the essence of your sound and vision.
+              {t('services.music.desc')}
             </p>
           </div>
           <div className={styles.serviceCard}>
-            <h3 className={styles.serviceTitle}>Documentary Films</h3>
+            <h3 className={styles.serviceTitle}>{t('services.documentary.title')}</h3>
             <p className={styles.serviceDescription}>
-              Compelling documentaries that explore real stories with depth and authenticity.
+              {t('services.documentary.desc')}
             </p>
           </div>
           <div className={styles.serviceCard}>
-            <h3 className={styles.serviceTitle}>Social Media Content</h3>
+            <h3 className={styles.serviceTitle}>{t('services.social.title')}</h3>
             <p className={styles.serviceDescription}>
-              Engaging content optimized for social platforms and digital audiences.
+              {t('services.social.desc')}
             </p>
           </div>
         </div>
@@ -82,23 +82,23 @@ export default function Home() {
 
       {/* Contact Us Section */}
       <section id="contact" className={styles.section}>
-        <h2 className={styles.sectionTitle}>Let's Create Together</h2>
+        <h2 className={styles.sectionTitle}>{t('contact.title')}</h2>
         <p className={styles.sectionSubtitle}>
-          Ready to bring your vision to life? Get in touch with our team.
+          {t('contact.subtitle')}
         </p>
         <div className={styles.contactContainer}>
           <div className={styles.contactInfo}>
-            <h3>Contact Information</h3>
-            <p>📧 hello@rodeostudio.com</p>
+            <h3>{t('contact.info')}</h3>
+            <p>📧 info@rodeostudio.net</p>
             <p>📱 +34 123 456 789</p>
             <p>📍 Barcelona, Spain</p>
           </div>
           <form className={styles.contactForm}>
-            <input type="text" placeholder="Your Name" className={styles.input} required />
-            <input type="email" placeholder="Your Email" className={styles.input} required />
-            <input type="text" placeholder="Project Type" className={styles.input} />
-            <textarea placeholder="Tell us about your project..." className={styles.textarea} required></textarea>
-            <button type="submit" className={styles.submitButton}>Send Message</button>
+            <input type="text" placeholder={t('contact.name')} className={styles.input} required />
+            <input type="email" placeholder={t('contact.email')} className={styles.input} required />
+            <input type="text" placeholder={t('contact.project')} className={styles.input} />
+            <textarea placeholder={t('contact.message')} className={styles.textarea} required></textarea>
+            <button type="submit" className={styles.submitButton}>{t('contact.send')}</button>
           </form>
         </div>
       </section>

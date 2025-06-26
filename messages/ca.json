@@ -1,0 +1,141 @@
+{
+  "home": {
+    "title": "Benvingut a Rodeo Studio",
+    "subtitle": "Donem vida a les històries amb producció audiovisual creativa i professional.",
+    "subtitle_long": "Especialitzem-nos en crear narratives visuals convincents que connecten amb les audiències.",
+    "cta": "Comença el teu Projecte"
+  },
+  "nav": {
+    "home": "Inici",
+    "projects": "Projectes",
+    "about": "Sobre nosaltres",
+    "services": "Serveis",
+    "contact": "Contacte"
+  },
+  "projects": {
+    "title": "Projectes Destacats",
+    "subtitle": "Explora els nostres últims treballs creatius que mostren diversos enfocaments narratius"
+  },
+  "about": {
+    "title": "Sobre Rodeo Studio",
+    "text1": "Fundada el 2020, Rodeo Studio és una productora independent que combina la passió pel cinema amb una visió contemporània. Creiem en el poder de la narrativa visual per crear connexions significatives entre marques i les seves audiències.",
+    "text2": "El nostre equip de professionals creatius s'especialitza en comercials, videoclips, documentals i contingut per a xarxes socials. Treballem estretament amb marques, artistes i agències per crear peces úniques que deixen una impressió duradora.",
+    "alt": "Equip de Rodeo Studio"
+  },
+  "services": {
+    "title": "Els nostres Serveis",
+    "commercial": {
+      "title": "Producció de Comercials",
+      "desc": "Comercials d'alt impacte que expliquen la història de la teva marca amb creativitat i precisió."
+    },
+    "music": {
+      "title": "Videoclips Musicals",
+      "desc": "Videoclips artístics que capturen l'essència del teu so i visió."
+    },
+    "documentary": {
+      "title": "Films Documentals",
+      "desc": "Documentals convincents que exploren històries reals amb profunditat i autenticitat."
+    },
+    "social": {
+      "title": "Contingut per Xarxes Socials",
+      "desc": "Contingut atractiu optimitzat per a plataformes socials i audiències digitals."
+    }
+  },
+  "contact": {
+    "title": "Creem Junts",
+    "subtitle": "Preparat per donar vida a la teva visió? Posa't en contacte amb el nostre equip.",
+    "info": "Informació de Contacte",
+    "name": "El teu Nom",
+    "email": "El teu Email",
+    "project": "Tipus de Projecte",
+    "message": "Explica'ns sobre el teu projecte...",
+    "send": "Enviar Missatge"
+  },
+  "footer": {
+    "slogan": "Creant narratives visuals que connecten marques amb el seu públic.",
+    "services": "Serveis",
+    "commercial": "Producció de Comercials",
+    "music": "Videoclips Musicals",
+    "documentary": "Documentals",
+    "social": "Contingut per Xarxes Socials",
+    "contact": "Contacte",
+    "follow": "Segueix-nos"
+  },
+  "carousel": {
+    "vimeo": "Vimeo Reel 2024",
+    "urban": "Anunci Marca Urbana",
+    "indie": "Videoclip Indie"
+  },
+  "slider": {
+    "urban": "Campanya de Marca Urbana",
+    "maria": "Maria Rodriguez",
+    "music": "Producció de Videoclip",
+    "carlos": "Carlos Mendez",
+    "documentary": "Documental Curt",
+    "ana": "Ana Gutierrez",
+    "commercial": "Espot Comercial",
+    "david": "David Kim",
+    "brand": "Història de Marca",
+    "sofia": "Sofia Patel"
+  },
+  "project": {
+    "notFound": "Projecte no trobat",
+    "returnHome": "Torna a l'Inici",
+    "projectDetails": "Detalls del Projecte",
+    "aboutProject": "Sobre el Projecte",
+    "gallery": "Galeria",
+    "backToProjects": "← Torna a Projectes",
+    "client": "Client",
+    "year": "Any",
+    "duration": "Durada",
+    "category": "Categoria",
+    "director": "Director",
+    "cinematographer": "Director de Fotografia",
+    "projects": {
+      "1": {
+        "title": "Campanya de Marca Urbana",
+        "description": "Una campanya de marca urbana dinàmica que mostra l'estil de vida modern i la cultura contemporània.",
+        "client": "UrbanLife Brand",
+        "year": "2024",
+        "duration": "2:30",
+        "category": "Comercial",
+        "director": "Maria Rodriguez",
+        "cinematographer": "Alex Thompson",
+        "fullDescription": "Aquesta campanya de marca urbana va ser dissenyada per capturar l'essència de la vida moderna a la ciutat. Rodada en múltiples localitzacions a Barcelona, el projecte mostra l'energia dinàmica de la cultura urbana mantenint una estètica sofisticada que parla a les audiències contemporànies.\n\nL'enfocament creatiu es va centrar en la narració autèntica, presentant persones reals en moments genuïns que reflecteixen els valors d'autenticitat i connexió de la marca. L'estil visual combina tècniques cinematogràfiques amb cinematografia d'estil documental per crear una narrativa envoltant."
+      },
+      "2": {
+        "title": "Producció de Videoclip Musical",
+        "description": "Videoclip creatiu amb efectes visuals impressionants i cinematografia artística.",
+        "client": "Col·lectiu d'Artistes Indie",
+        "year": "2024",
+        "duration": "3:45",
+        "category": "Videoclip Musical",
+        "director": "Carlos Mendez",
+        "cinematographer": "Sofia Patel",
+        "fullDescription": "Una exploració artística del so i la visió, aquest videoclip musical empeny els límits creatius mentre serveix a la visió artística dels músics presentats. El projecte combina efectes pràctics amb millora digital per crear una experiència visual surrealista.\n\nRodat completament en estudi amb sets construïts a mida, el vídeo crea múltiples mons que reflecteixen diferents estats emocionals dins de la música. La paleta de colors evoluciona al llarg de la peça, guiant els espectadors a través d'un viatge visual que complementa la narrativa musical."
+      },
+      "3": {
+        "title": "Documental Curt",
+        "description": "Documental emotiu que captura històries reals de comunitats locals.",
+        "client": "Fundació Cultural",
+        "year": "2024",
+        "duration": "15:00",
+        "category": "Documental",
+        "director": "Ana Gutierrez",
+        "cinematographer": "Miguel Santos",
+        "fullDescription": "Aquest documental curt explora el ric patrimoni cultural de les comunitats locals, enfocant-se en històries que sovint no es conten. A través d'entrevistes íntimes i metratge observacional, la pel·lícula crea un retrat de resistència i tradició en la societat contemporània.\n\nL'enfocament documental prioritza la narració autèntica, permetent que els subjectes comparteixin les seves experiències amb les seves pròpies paraules. L'estil visual és deliberadament discret, enfocant l'atenció en les històries humanes al cor de la narrativa."
+      },
+      "4": {
+        "title": "Espot Comercial",
+        "description": "Comercial d'alt impacte amb narrativa convincent i missatge de marca fort.",
+        "client": "Empresa Tecnològica Global",
+        "year": "2024",
+        "duration": "1:00",
+        "category": "Comercial",
+        "director": "David Kim",
+        "cinematographer": "Elena Vasquez",
+        "fullDescription": "Un comercial d'alt impacte que conta una història convincent mentre entrega un missatge de marca fort. El projecte equilibra la ressonància emocional amb la comunicació clara dels beneficis del producte, creant una experiència de visualització memorable.\n\nL'estratègia creativa es va centrar en demostrar les aplicacions del món real de la tecnologia mentre manté la connexió humana al centre de la narrativa. L'enfocament visual combina cinematografia elegant del producte amb moments humans càlids."
+      }
+    }
+  }
+}

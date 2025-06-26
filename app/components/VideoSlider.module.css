@@ -131,7 +131,7 @@
   height: 100%;
   width: fit-content;
   flex-direction: column;
-  justify-content: end;
+  justify-content: flex-end;
   gap: 2rem;
   text-decoration: none;
   color: inherit;

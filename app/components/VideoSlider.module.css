@@ -1,0 +1,262 @@
+.sliderContainer {
+  overflow: hidden;
+  width: 100%;
+  padding: 3rem 0;
+  background: linear-gradient(135deg, #e0f7fa 0%, #f8fcfc 100%);
+}
+
+.videoSlider {
+  display: flex;
+  gap: 3rem;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 0 2rem;
+}
+
+.videoSlider::-webkit-scrollbar {
+  display: none;
+}
+
+.videoCard {
+  min-width: 600px; /* Increased from 350px to 600px */
+  flex-shrink: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease;
+}
+
+.videoCard:hover {
+  transform: translateY(-10px) scale(1.02);
+}
+
+.videoWrapper {
+  position: relative;
+  width: 100%;
+  height: 400px; /* Increased from 200px to 400px */
+  overflow: hidden;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  border: none;
+  object-fit: cover;
+}
+
+.videoOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  padding: 2rem;
+  color: white;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.videoCard:hover .videoOverlay {
+  transform: translateY(0);
+}
+
+.videoInfo {
+  text-align: left;
+}
+
+.videoTitle {
+  font-size: 1.5rem; /* Increased from 1.2rem */
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+.videoDescription {
+  font-size: 1rem;
+  color: #e0f7fa;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.projectLink {
+  display: inline-block;
+  color: #e0f7fa;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding: 0.75rem 1.5rem;
+  background-color: rgba(0, 121, 107, 0.8);
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.projectLink:hover {
+  background-color: rgba(0, 77, 64, 0.9);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 121, 107, 0.4);
+}
+
+.carousel {
+  overflow: hidden;
+  height: 450px;
+  width: 100%;
+  background-color: transparent;
+  padding: 3rem 0;
+  margin: 3rem 0;
+}
+
+.carouselInner {
+  display: flex;
+  height: 100%;
+  width: fit-content;
+  gap: 4rem;
+  cursor: grab;
+  will-change: transform;
+  padding: 0 2rem;
+}
+
+.carouselInner:active {
+  cursor: grabbing;
+}
+
+.projectCard {
+  display: flex;
+  height: 100%;
+  width: fit-content;
+  flex-direction: column;
+  justify-content: end;
+  gap: 2rem;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease;
+}
+
+.projectCard:hover {
+  transform: translateY(-5px);
+}
+
+.projectCard:active {
+  cursor: grabbing;
+}
+
+.videoContainer {
+  position: relative;
+}
+
+.mediaWrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  background-color: #e2e2e2;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 1024px) {
+  .mediaWrapper {
+    border-radius: 1rem;
+  }
+}
+
+.thumbnail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.5s ease;
+  z-index: 1;
+}
+
+.video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+
+.projectCard:hover .thumbnail {
+  opacity: 0;
+}
+
+.projectCard:hover .video {
+  opacity: 1;
+}
+
+.projectInfo {
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+@media (min-width: 640px) {
+  .projectInfo {
+    font-size: 1.125rem;
+  }
+}
+
+.projectTitle {
+  margin: 0 0 0.25rem 0;
+  font-weight: 600;
+  color: #004d40;
+}
+
+.projectDirector {
+  margin: 0;
+  font-weight: 400;
+  color: #00796b;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .carousel {
+    height: 380px;
+    margin: 2rem 0;
+    padding: 2rem 0;
+  }
+  
+  .carouselInner {
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+  
+  .projectCard {
+    gap: 1.5rem;
+  }
+  
+  .videoContainer {
+    width: min(90vw, calc(240px * var(--aspect-ratio, 1.778))) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel {
+    height: 320px;
+    margin: 1.5rem 0;
+    padding: 1.5rem 0;
+  }
+  
+  .carouselInner {
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+  
+  .projectCard {
+    gap: 1rem;
+  }
+  
+  .videoContainer {
+    width: min(85vw, calc(200px * var(--aspect-ratio, 1.778))) !important;
+  }
+}

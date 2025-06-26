@@ -1,0 +1,32 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #e0f7fa; /* pastel blue */
+  color: #004d40; /* dark green */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.navLinks {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.link {
+  text-decoration: none;
+  color: #004d40;
+  font-size: 1rem;
+  font-family: 'Helvetica Neue', sans-serif;
+  transition: color 0.3s ease;
+}
+
+.link:hover {
+  color: #00796b; /* lighter green */
+}

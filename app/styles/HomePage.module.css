@@ -1,0 +1,236 @@
+/* app/HomePage.module.css */
+.main {
+  font-family: 'Helvetica Neue', sans-serif;
+  color: #004d40;
+  background-color: #f8fcfc;
+}
+
+.hero {
+  height: 90vh;
+  background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.overlay {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 4rem 2rem;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+}
+
+.title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #004d40;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: 1.3rem;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  color: #00796b;
+  line-height: 1.6;
+}
+
+.ctaButton {
+  padding: 1rem 2rem;
+  background-color: #00796b;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 121, 107, 0.3);
+}
+
+.ctaButton:hover {
+  background-color: #004d40;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 121, 107, 0.4);
+}
+
+.section {
+  padding: 5rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #004d40;
+  font-weight: 700;
+}
+
+.sectionSubtitle {
+  font-size: 1.2rem;
+  text-align: center;
+  color: #00796b;
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #00796b;
+  margin-bottom: 1.5rem;
+}
+
+.aboutContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.aboutText {
+  text-align: left;
+}
+
+.aboutImage {
+  text-align: center;
+}
+
+.image {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.serviceCard {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+  text-align: center;
+}
+
+.serviceCard:hover {
+  transform: translateY(-5px);
+}
+
+.serviceTitle {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #004d40;
+  margin-bottom: 1rem;
+}
+
+.serviceDescription {
+  font-size: 1rem;
+  color: #00796b;
+  line-height: 1.6;
+}
+
+.contactContainer {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+.contactInfo {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.contactInfo h3 {
+  color: #004d40;
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+}
+
+.contactInfo p {
+  color: #00796b;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.input, .textarea {
+  padding: 1rem;
+  border: 2px solid #e0f7fa;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.input:focus, .textarea:focus {
+  outline: none;
+  border-color: #00796b;
+}
+
+.textarea {
+  resize: vertical;
+  height: 120px;
+}
+
+.submitButton {
+  padding: 1rem 2rem;
+  background-color: #00796b;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.submitButton:hover {
+  background-color: #004d40;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5rem;
+  }
+  
+  .aboutContent {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .contactContainer {
+    grid-template-columns: 1fr;
+  }
+  
+  .servicesGrid {
+    grid-template-columns: 1fr;
+  }
+}

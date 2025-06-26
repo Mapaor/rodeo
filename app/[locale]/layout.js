@@ -19,6 +19,11 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Rodeo Studio",
   description: "La teva productora audiovisual de confiança",
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico"
+  }
 };
 
 export default async function Layout({ children, params }) {

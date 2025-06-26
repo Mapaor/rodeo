@@ -229,6 +229,13 @@
   margin-bottom: 3rem;
 }
 
+.heroLogo {
+  position: absolute;
+  top: 75px;
+  left: 50%;
+  transform: translateX(-47%);
+}
+
 @media (max-width: 768px) {
   .title {
     font-size: 2.5rem;

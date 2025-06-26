@@ -16,11 +16,21 @@ export default function LocalePage() {
         {/* Hero Section */}
         <section id="home" className={styles.hero}>
           <div className={styles.overlay}>
+            <div className={styles.heroLogo}>
+            <Image src="/cavall.png" width={450} height={225} alt="Rodeo Studio Logo" />
+            </div>
             <h1 className={styles.title}>{t('home.title')}</h1>
             <p className={styles.subtitle}>
               {t('home.subtitle')} {t('home.subtitle_long')}
             </p>
-            <button className={styles.ctaButton}>{t('home.cta')}</button>
+            <button className={styles.ctaButton} onClick={() => {
+              const contactSection = document.getElementById('contact');
+              if (contactSection) {
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}>
+              {t('home.cta')}
+            </button>
           </div>
         </section>
 
@@ -93,9 +103,13 @@ export default function LocalePage() {
           <div className={styles.contactContainer}>
             <div className={styles.contactInfo}>
               <h3>{t('contact.info')}</h3>
-              <p>📧 info@rodeostudio.net</p>
-              <p>📱 +34 123 456 789</p>
-              <p>📍 Barcelona, Spain</p>
+              {/* <p><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/1f4ac.svg" alt="email" style={{ width: '1.2em', verticalAlign: 'middle' }} /> info@rodeostudio.net</p> */}
+              {/* <p><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/1f4e8.svg" alt="email" style={{ width: '1.2em', verticalAlign: 'middle' }} /> info@rodeostudio.net</p> */}
+              <p><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/1f4ee.svg" alt="email" style={{ width: '1.2em', verticalAlign: 'middle' }} /> info@rodeostudio.net</p>
+              {/* <p><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/1f4ec.svg" alt="email" style={{ width: '1.2em', verticalAlign: 'middle' }} /> info@rodeostudio.net</p> */}
+              <p><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/1f4de.svg" alt="phone" style={{ width: '1.2em', verticalAlign: 'middle' }} /> +34 123 456 789</p>
+              {/* <p><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/1f4f2.svg" alt="phone" style={{ width: '1.2em', verticalAlign: 'middle' }} /> +34 123 456 789</p> */}
+              <p><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/1f4cd.svg" alt="location" style={{ width: '1.2em', verticalAlign: 'middle' }} /> Barcelona, Spain</p>
             </div>
             <form className={styles.contactForm}>
               <input type="text" placeholder={t('contact.name')} className={styles.input} required />

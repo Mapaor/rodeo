@@ -151,7 +151,7 @@ export default function VideoSlider() {
     const container = containerRef.current;
     if (!container) return;
 
-    const naturalScrollSpeed = 1.6; // Target auto-scroll speed
+    const naturalScrollSpeed = 1.8; // Match the auto-scroll speed
     const smoothingFactor = 0.02; // How quickly to converge to natural speed
     
     const velocityInterval = setInterval(() => {
@@ -224,7 +224,7 @@ export default function VideoSlider() {
     if (timeDiff > 0 && timeDiff < 200) { // Only use recent movements
       const positionDiff = lastPositionRef.current - startX;
       const calculatedVelocity = positionDiff / timeDiff * 16; // Convert to per-frame velocity
-      const dampedVelocity = -calculatedVelocity * 0.3; // Apply damping
+      const dampedVelocity = -calculatedVelocity * 0.15; // Reduced damping factor for gentler motion
       
       // Always set velocity for smooth transition, even if small
       setVelocity(dampedVelocity);
@@ -286,7 +286,7 @@ export default function VideoSlider() {
     if (timeDiff > 0 && timeDiff < 200) { // Only use recent movements
       const positionDiff = lastPositionRef.current - startX;
       const calculatedVelocity = positionDiff / timeDiff * 16; // Convert to per-frame velocity
-      const dampedVelocity = -calculatedVelocity * 0.3; // Apply damping
+      const dampedVelocity = -calculatedVelocity * 0.1; // Even more reduced for touch (mobile)
       
       // Always set velocity for smooth transition, even if small
       setVelocity(dampedVelocity);

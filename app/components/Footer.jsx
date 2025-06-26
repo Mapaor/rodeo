@@ -50,7 +50,7 @@ export default function Footer() {
       </div>
       
       <div className={styles.bottomBar}>
-        <p>&copy; 2025 Rodeo Studio. All rights reserved.</p>
+        <p>&copy; {t('footer.copyright')}</p>
       </div>
     </footer>
   );

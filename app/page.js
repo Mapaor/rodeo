@@ -17,11 +17,13 @@ export default function Home() {
       </section>
 
       {/* Featured Projects Section */}
-      <section id="projects" className={styles.section}>
-        <h2 className={styles.sectionTitle}>Featured Projects</h2>
-        <p className={styles.sectionSubtitle}>
-          Explore our latest creative works showcasing diverse storytelling approaches
-        </p>
+      <section id="projects" className={styles.projectsSection}>
+        <div className={styles.projectsContent}>
+          <h2 className={styles.sectionTitle}>Featured Projects</h2>
+          <p className={styles.sectionSubtitle}>
+            Explore our latest creative works showcasing diverse storytelling approaches
+          </p>
+        </div>
         <VideoSlider />
       </section>
 

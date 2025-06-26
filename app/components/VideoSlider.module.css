@@ -103,10 +103,13 @@
 .carousel {
   overflow: hidden;
   height: 450px;
-  width: 100%;
+  width: 100vw;
   background-color: transparent;
-  padding: 3rem 0;
-  margin: 3rem 0;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .carouselInner {
@@ -116,7 +119,7 @@
   gap: 4rem;
   cursor: grab;
   will-change: transform;
-  padding: 0 2rem;
+  padding: 0 0 0 2rem;
 }
 
 .carouselInner:active {
@@ -222,13 +225,11 @@
 @media (max-width: 768px) {
   .carousel {
     height: 380px;
-    margin: 2rem 0;
-    padding: 2rem 0;
   }
   
   .carouselInner {
     gap: 2rem;
-    padding: 0 1rem;
+    padding: 0 0 0 1rem;
   }
   
   .projectCard {
@@ -243,13 +244,11 @@
 @media (max-width: 480px) {
   .carousel {
     height: 320px;
-    margin: 1.5rem 0;
-    padding: 1.5rem 0;
   }
   
   .carouselInner {
     gap: 1.5rem;
-    padding: 0 1rem;
+    padding: 0 0 0 1rem;
   }
   
   .projectCard {

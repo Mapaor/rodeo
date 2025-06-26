@@ -60,7 +60,7 @@
 
 .section {
   padding: 5rem 2rem;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -214,6 +214,19 @@
 .submitButton:hover {
   background-color: #004d40;
   transform: translateY(-2px);
+}
+
+.projectsSection {
+  padding: 5rem 0;
+  background-color: #f8fcfc;
+}
+
+.projectsContent {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: center;
+  margin-bottom: 3rem;
 }
 
 @media (max-width: 768px) {

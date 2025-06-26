@@ -1,9 +1,9 @@
+import "@/styles/globals.css";
 import { NextIntlClientProvider } from 'next-intl';
 import { Geist, Geist_Mono } from "next/font/google";
 import messagesCa from '../../messages/ca.json';
 import messagesEs from '../../messages/es.json';
 import messagesEn from '../../messages/en.json';
-import '@/styles/globals.css';
 import React from "react";
 
 const geistSans = Geist({
@@ -18,12 +18,11 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Rodeo Studio",
-  description: "La teva productora audiovisual de confiança", // Canviar també segons l'idioma?
+  description: "La teva productora audiovisual de confiança",
 };
 
-export default async function LocaleLayout({ children, params }) {
-   const { locale } = await params;
-  
+export default async function Layout({ children, params }) {
+  const { locale = 'ca' } = await params;
   const messages = {
     ca: messagesCa,
     es: messagesEs,

@@ -1,1 +1,143 @@
-export { default } from '@/project/[id]/page';
+"use client";
+import styles from './Project.module.css';
+import Link from 'next/link';
+import Image from 'next/image';
+import { useTranslations } from 'next-intl';
+import NavBar from '@/components/NavBar';
+import React from "react";
+
+
+const projects = {
+  1: {
+    videoUrl: 'https://player.vimeo.com/video/76979871?h=0f6c34c2b1&title=0&byline=0&portrait=0',
+    gallery: [
+      '/project1-img1.jpg',
+      '/project1-img2.jpg',
+      '/project1-img3.jpg'
+    ]
+  },
+  2: {
+    videoUrl: 'https://player.vimeo.com/video/357274789?h=1a1dbb5b02&title=0&byline=0&portrait=0',
+    gallery: [
+      '/project2-img1.jpg',
+      '/project2-img2.jpg',
+      '/project2-img3.jpg'
+    ]
+  },
+  3: {
+    videoUrl: 'https://player.vimeo.com/video/1084537?h=847b0e6e5e&title=0&byline=0&portrait=0',
+    gallery: [
+      '/project3-img1.jpg',
+      '/project3-img2.jpg',
+      '/project3-img3.jpg'
+    ]
+  },
+  4: {
+    videoUrl: 'https://player.vimeo.com/video/148751763?h=2a5c7e8d9f&title=0&byline=0&portrait=0',
+    gallery: [
+      '/project4-img1.jpg',
+      '/project4-img2.jpg',
+      '/project4-img3.jpg'
+    ]
+  }
+};
+
+export default function ProjectPage({ params }) {
+  const t = useTranslations();
+  const { id } = React.use(params);
+
+  const project = projects[id];
+
+  if (!project) {
+    return (
+      <div className={styles.container}>
+        <NavBar />
+        <h1>{t('project.notFound')}</h1>
+        <Link href="/">{t('project.returnHome')}</Link>
+      </div>
+    );
+  }
+
+  const projectData = t.raw(`project.projects.${id}`);
+
+  return (
+    <div className={styles.container}>
+      <NavBar />
+      <div className={styles.hero}>
+        <div className={styles.projectPresentation}>
+          <h1 className={styles.title}>{projectData.title}</h1>
+        </div>
+        <div className={styles.videoContainer}>
+          <iframe
+            src={project.videoUrl}
+            title={projectData.title}
+            style={{ border: 0 }}
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowFullScreen
+            className={styles.video}
+          />
+        </div>
+        <div className={styles.projectInfo}>
+          <p className={styles.description}>{projectData.description}</p>
+        </div>
+      </div>
+
+      <div className={styles.content}>
+        <div className={styles.details}>
+          <h2>{t('project.projectDetails')}</h2>
+          <div className={styles.detailsGrid}>
+            <div className={styles.detailItem}>
+              <strong>{t('project.client')}:</strong> {projectData.client}
+            </div>
+            <div className={styles.detailItem}>
+              <strong>{t('project.year')}:</strong> {projectData.year}
+            </div>
+            <div className={styles.detailItem}>
+              <strong>{t('project.duration')}:</strong> {projectData.duration}
+            </div>
+            <div className={styles.detailItem}>
+              <strong>{t('project.category')}:</strong> {projectData.category}
+            </div>
+            <div className={styles.detailItem}>
+              <strong>{t('project.director')}:</strong> {projectData.director}
+            </div>
+            <div className={styles.detailItem}>
+              <strong>{t('project.cinematographer')}:</strong> {projectData.cinematographer}
+            </div>
+          </div>
+        </div>
+
+        <div className={styles.fullDescription}>
+          <h2>{t('project.aboutProject')}</h2>
+          <div className={styles.descriptionText}>
+            {projectData.fullDescription.split('\n\n').map((paragraph, index) => (
+              <p key={index}>{paragraph.trim()}</p>
+            ))}
+          </div>
+        </div>
+
+        <div className={styles.gallery}>
+          <h2>{t('project.gallery')}</h2>
+          <div className={styles.galleryGrid}>
+            {project.gallery.map((image, index) => (
+              <Image
+                key={index}
+                src={image}
+                alt={`${projectData.title} - Image ${index + 1}`}
+                className={styles.galleryImage}
+                width={400}
+                height={250}
+              />
+            ))}
+          </div>
+        </div>
+
+        <div className={styles.navigation}>
+          <Link href="/#projects" className={styles.backLink}>
+            {t('project.backToProjects')}
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}

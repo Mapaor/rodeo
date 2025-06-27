@@ -222,7 +222,7 @@ export default function VideoSlider() {
       if (timeDiff > 0 && timeDiff < 200) { // Only use recent movements
         const positionDiff = lastPositionRef.current - startX;
         const calculatedVelocity = positionDiff / timeDiff * 16; // Convert to per-frame velocity
-        const dampedVelocity = -calculatedVelocity * 0.05; // Original natural damping
+        const dampedVelocity = -calculatedVelocity * 0.3; // Original natural damping
         
         // Apply maximum velocity cap only to final velocity
         const maxFinalVelocity = 150; // Maximum pixels per frame for final velocity
@@ -306,7 +306,7 @@ export default function VideoSlider() {
       if (timeDiff > 0 && timeDiff < 200) { // Only use recent movements
         const positionDiff = lastPositionRef.current - startX;
         const calculatedVelocity = positionDiff / timeDiff * 16; // Convert to per-frame velocity
-        const dampedVelocity = -calculatedVelocity * 0.05; // Original natural damping
+        const dampedVelocity = -calculatedVelocity * 0.3; // Original natural damping
         
         // Apply maximum velocity cap only to final velocity
         const maxFinalVelocity = 150; // Maximum pixels per frame for final velocity (touch)

@@ -56,6 +56,8 @@ export default function VideoSlider() {
   const [isAutoScrolling, setIsAutoScrolling] = useState(true);
   const [velocity, setVelocity] = useState(0);
   const [isInitialized, setIsInitialized] = useState(false);
+  const [clickStartPosition, setClickStartPosition] = useState(null);
+  const [dragThreshold] = useState(5); // Pixels de moviment per considerar que és dragging
   const lastPositionRef = useRef(0);
   const lastTimeRef = useRef(Date.now());
   const actualTranslateRef = useRef(0); // Track the real position without normalization
@@ -151,7 +153,7 @@ export default function VideoSlider() {
     const container = containerRef.current;
     if (!container) return;
 
-    const naturalScrollSpeed = 1.8; // Match the auto-scroll speed
+    const naturalScrollSpeed = 2.0; // Match the auto-scroll speed
     const smoothingFactor = 0.02; // How quickly to converge to natural speed
     
     const velocityInterval = setInterval(() => {
@@ -187,7 +189,7 @@ export default function VideoSlider() {
     const handleGlobalMouseMove = (e) => handleMouseMove(e);
     const handleGlobalMouseUp = () => handleMouseUp();
 
-    if (isDragging) {
+    if (clickStartPosition) {
       document.addEventListener('mousemove', handleGlobalMouseMove);
       document.addEventListener('mouseup', handleGlobalMouseUp);
     }
@@ -196,50 +198,71 @@ export default function VideoSlider() {
       document.removeEventListener('mousemove', handleGlobalMouseMove);
       document.removeEventListener('mouseup', handleGlobalMouseUp);
     };
-  }, [isDragging, startX, scrollLeft, currentTranslate]);
+  }, [clickStartPosition, isDragging, startX, scrollLeft, currentTranslate]);
 
   // Mouse drag handlers
   const handleMouseDown = (e) => {
     e.preventDefault();
-    setIsDragging(true);
-    setIsAutoScrolling(false);
-    setVelocity(0);
+    setClickStartPosition({ x: e.pageX, y: e.pageY });
     setStartX(e.pageX);
     setScrollLeft(actualTranslateRef.current);
     lastPositionRef.current = e.pageX;
     lastTimeRef.current = Date.now();
     
-    if (containerRef.current) {
-      containerRef.current.style.cursor = 'grabbing';
-      containerRef.current.classList.add(styles.dragging);
-    }
+    // No activem isDragging immediatament, esperem moviment
   };
 
   const handleMouseUp = () => {
-    setIsDragging(false);
-    
-    // Calculate velocity for smooth transition to auto-scroll
-    const currentTime = Date.now();
-    const timeDiff = currentTime - lastTimeRef.current;
-    if (timeDiff > 0 && timeDiff < 200) { // Only use recent movements
-      const positionDiff = lastPositionRef.current - startX;
-      const calculatedVelocity = positionDiff / timeDiff * 16; // Convert to per-frame velocity
-      const dampedVelocity = -calculatedVelocity * 0.15; // Reduced damping factor for gentler motion
+    if (isDragging) {
+      setIsDragging(false);
       
-      // Always set velocity for smooth transition, even if small
-      setVelocity(dampedVelocity);
-    } else {
-      // No recent movement, start transitioning to auto-scroll immediately
-      setVelocity(0);
+      // Calculate velocity for smooth transition to auto-scroll
+      const currentTime = Date.now();
+      const timeDiff = currentTime - lastTimeRef.current;
+      if (timeDiff > 0 && timeDiff < 200) { // Only use recent movements
+        const positionDiff = lastPositionRef.current - startX;
+        const calculatedVelocity = positionDiff / timeDiff * 16; // Convert to per-frame velocity
+        const dampedVelocity = -calculatedVelocity * 0.05; // Original natural damping
+        
+        // Apply maximum velocity cap only to final velocity
+        const maxFinalVelocity = 150; // Maximum pixels per frame for final velocity
+        const clampedFinalVelocity = Math.max(-maxFinalVelocity, Math.min(maxFinalVelocity, dampedVelocity));
+        
+        // Always set velocity for smooth transition, even if small
+        setVelocity(clampedFinalVelocity);
+      } else {
+        // No recent movement, start transitioning to auto-scroll immediately
+        setVelocity(0);
+      }
+      
+      if (containerRef.current) {
+        containerRef.current.style.cursor = 'grab';
+        containerRef.current.classList.remove(styles.dragging);
+      }
     }
     
-    if (containerRef.current) {
-      containerRef.current.style.cursor = 'grab';
-      containerRef.current.classList.remove(styles.dragging);
-    }
+    // Reset click position
+    setClickStartPosition(null);
   };
 
   const handleMouseMove = (e) => {
+    if (!clickStartPosition) return;
+    
+    const deltaX = Math.abs(e.pageX - clickStartPosition.x);
+    const deltaY = Math.abs(e.pageY - clickStartPosition.y);
+    
+    // Si el moviment supera el threshold, activem el dragging
+    if (!isDragging && (deltaX > dragThreshold || deltaY > dragThreshold)) {
+      setIsDragging(true);
+      setIsAutoScrolling(false);
+      setVelocity(0);
+      
+      if (containerRef.current) {
+        containerRef.current.style.cursor = 'grabbing';
+        containerRef.current.classList.add(styles.dragging);
+      }
+    }
+    
     if (!isDragging || !containerRef.current) return;
     e.preventDefault();
     
@@ -264,43 +287,64 @@ export default function VideoSlider() {
 
   // Touch drag handlers
   const handleTouchStart = (e) => {
-    setIsDragging(true);
-    setIsAutoScrolling(false);
-    setVelocity(0);
+    setClickStartPosition({ x: e.touches[0].pageX, y: e.touches[0].pageY });
     setStartX(e.touches[0].pageX);
     setScrollLeft(actualTranslateRef.current);
     lastPositionRef.current = e.touches[0].pageX;
     lastTimeRef.current = Date.now();
     
-    if (containerRef.current) {
-      containerRef.current.classList.add(styles.dragging);
-    }
+    // No activem isDragging immediatament, esperem moviment
   };
 
   const handleTouchEnd = () => {
-    setIsDragging(false);
-    
-    // Calculate velocity for smooth transition to auto-scroll
-    const currentTime = Date.now();
-    const timeDiff = currentTime - lastTimeRef.current;
-    if (timeDiff > 0 && timeDiff < 200) { // Only use recent movements
-      const positionDiff = lastPositionRef.current - startX;
-      const calculatedVelocity = positionDiff / timeDiff * 16; // Convert to per-frame velocity
-      const dampedVelocity = -calculatedVelocity * 0.1; // Even more reduced for touch (mobile)
+    if (isDragging) {
+      setIsDragging(false);
       
-      // Always set velocity for smooth transition, even if small
-      setVelocity(dampedVelocity);
-    } else {
-      // No recent movement, start transitioning to auto-scroll immediately
-      setVelocity(0);
+      // Calculate velocity for smooth transition to auto-scroll
+      const currentTime = Date.now();
+      const timeDiff = currentTime - lastTimeRef.current;
+      if (timeDiff > 0 && timeDiff < 200) { // Only use recent movements
+        const positionDiff = lastPositionRef.current - startX;
+        const calculatedVelocity = positionDiff / timeDiff * 16; // Convert to per-frame velocity
+        const dampedVelocity = -calculatedVelocity * 0.05; // Original natural damping
+        
+        // Apply maximum velocity cap only to final velocity
+        const maxFinalVelocity = 150; // Maximum pixels per frame for final velocity (touch)
+        const clampedFinalVelocity = Math.max(-maxFinalVelocity, Math.min(maxFinalVelocity, dampedVelocity));
+        
+        // Always set velocity for smooth transition, even if small
+        setVelocity(clampedFinalVelocity);
+      } else {
+        // No recent movement, start transitioning to auto-scroll immediately
+        setVelocity(0);
+      }
+      
+      if (containerRef.current) {
+        containerRef.current.classList.remove(styles.dragging);
+      }
     }
     
-    if (containerRef.current) {
-      containerRef.current.classList.remove(styles.dragging);
-    }
+    // Reset click position
+    setClickStartPosition(null);
   };
 
   const handleTouchMove = (e) => {
+    if (!clickStartPosition) return;
+    
+    const deltaX = Math.abs(e.touches[0].pageX - clickStartPosition.x);
+    const deltaY = Math.abs(e.touches[0].pageY - clickStartPosition.y);
+    
+    // Si el moviment supera el threshold, activem el dragging
+    if (!isDragging && (deltaX > dragThreshold || deltaY > dragThreshold)) {
+      setIsDragging(true);
+      setIsAutoScrolling(false);
+      setVelocity(0);
+      
+      if (containerRef.current) {
+        containerRef.current.classList.add(styles.dragging);
+      }
+    }
+    
     if (!isDragging || !containerRef.current) return;
     e.preventDefault();
     
@@ -349,7 +393,12 @@ export default function VideoSlider() {
                 className={styles.projectCard}
                 draggable="false"
                 onMouseDown={(e) => isDragging && e.preventDefault()}
-                onClick={(e) => isDragging && e.preventDefault()}
+                onClick={(e) => {
+                  // Només prevenir navegació si estem realment fent dragging
+                  if (isDragging) {
+                    e.preventDefault();
+                  }
+                }}
               >
                 <div
                   className={styles.videoContainer}

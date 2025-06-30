@@ -79,7 +79,7 @@ export default function LocalePage() {
               </p>
             </div>
             <div className={styles.aboutImage}>
-              <Image src="/about-studio.jpg" alt={t('about.alt')} className={styles.image} width={500} height={333} />
+              <Image src="/foto-grup.jpg" alt={t('about.alt')} className={styles.image} width={600} height={333} />
             </div>
           </div>
         </section>

@@ -5,42 +5,8 @@ import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import NavBar from '@/components/NavBar';
 import React from "react";
+import projects from '@/components/projectes';
 
-
-const projects = {
-  1: {
-    videoUrl: 'https://player.vimeo.com/video/76979871?h=0f6c34c2b1&title=0&byline=0&portrait=0',
-    gallery: [
-      '/project1-img1.jpg',
-      '/project1-img2.jpg',
-      '/project1-img3.jpg'
-    ]
-  },
-  2: {
-    videoUrl: 'https://player.vimeo.com/video/357274789?h=1a1dbb5b02&title=0&byline=0&portrait=0',
-    gallery: [
-      '/project2-img1.jpg',
-      '/project2-img2.jpg',
-      '/project2-img3.jpg'
-    ]
-  },
-  3: {
-    videoUrl: 'https://player.vimeo.com/video/1084537?h=847b0e6e5e&title=0&byline=0&portrait=0',
-    gallery: [
-      '/project3-img1.jpg',
-      '/project3-img2.jpg',
-      '/project3-img3.jpg'
-    ]
-  },
-  4: {
-    videoUrl: 'https://player.vimeo.com/video/148751763?h=2a5c7e8d9f&title=0&byline=0&portrait=0',
-    gallery: [
-      '/project4-img1.jpg',
-      '/project4-img2.jpg',
-      '/project4-img3.jpg'
-    ]
-  }
-};
 
 export default function ProjectPage({ params }) {
   const t = useTranslations();

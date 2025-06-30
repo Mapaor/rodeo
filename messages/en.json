@@ -142,6 +142,17 @@
         "director": "David Kim",
         "cinematographer": "Elena Vasquez",
         "fullDescription": "A high-impact commercial that tells a compelling story while delivering strong brand messaging. The project balances emotional resonance with clear communication of product benefits, creating a memorable viewing experience.\n\nThe creative strategy focused on demonstrating real-world applications of the technology while maintaining human connection at the center of the narrative. The visual approach combines sleek product cinematography with warm, human moments."
+      },
+      "5": {
+        "title": "Brand Story",
+        "description": "Corporate documentary exploring the values and history of a century-old family business.",
+        "client": "Barcelona Artisans",
+        "year": "2024",
+        "duration": "8:30",
+        "category": "Corporate Documentary",
+        "director": "Sofia Patel",
+        "cinematographer": "Marc Jiménez",
+        "fullDescription": "A deeply emotional brand story that follows three generations of Barcelona artisans, exploring how tradition and innovation combine to keep a century-old craft alive. The project captures the family passion and values that have endured through the years.\n\nShot in the traditional workshops of the Gothic Quarter, the documentary uses warm and intimate cinematography to reveal the artisanal processes that define the brand. Interviews with three generations of the family show how fundamental values have been passed down while adapting to modern times."
       }
     }
   }

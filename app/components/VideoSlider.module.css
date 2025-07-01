@@ -44,6 +44,10 @@
   height: 100%;
   border: none;
   object-fit: cover;
+  /* Optimitzacions per rendiment */
+  backface-visibility: hidden;
+  perspective: 1000px;
+  transform-style: preserve-3d;
 }
 
 .videoOverlay {
@@ -125,6 +129,9 @@
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+  contain: layout style paint;
+  backface-visibility: hidden;
+  perspective: 1000px;
 }
 
 .carouselInner:active {
@@ -175,7 +182,8 @@
   width: 100%;
   height: 100%;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  contain: layout style paint; /* CSS containment for better performance */
+  contain: layout style paint;
+  isolation: isolate;
 }
 
 /* Assegurar que sempre hi ha un background visible durant el loading */
@@ -261,8 +269,32 @@
   z-index: 3;
 }
 
+/* Optimitzacions de rendiment per vídeos */
+.projectCard[data-video-key*="-set1-"] .video {
+  /* Precarregar sempre els del set central */
+  content-visibility: auto;
+  contain-intrinsic-size: 100% 304px;
+}
 
+/* Lazy loading per altres sets */
+.projectCard:not([data-video-key*="-set1-"]) .video {
+  content-visibility: auto;
+  contain-intrinsic-size: 100% 304px;
+}
 
+/* Millores de transició per evitar flashes */
+.mediaWrapper {
+  contain: layout style paint;
+  isolation: isolate;
+}
+
+/* Cache GPU per elements que canvien sovint */
+.carouselInner {
+  contain: layout style paint;
+  will-change: transform;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
 
 /* Lògica per al hover quan les preferències són diferents */
 /* Només canviar opacitat si should-change-on-hover és 1 */

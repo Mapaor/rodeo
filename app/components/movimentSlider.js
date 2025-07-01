@@ -32,7 +32,7 @@ export const useSliderMovement = (containerRef, videos, styles) => {
     const totalWidth = container.scrollWidth;
     
     // Calculate the width of a single set of videos (original 5 videos)
-    const numberOfSets = 5; // Updated to match the new number of sets
+    const numberOfSets = 3; // Updated to match the new optimized number of sets
     const singleSetWidth = totalWidth / numberOfSets;
     
     // Normalize to a single set width for seamless looping
@@ -40,7 +40,7 @@ export const useSliderMovement = (containerRef, videos, styles) => {
     
     // Apply additional offset so we're always showing from the middle copies
     // This ensures we never hit the actual start or end of the DOM content
-    const offsetNormalized = normalized + singleSetWidth * 2; // Show from the 3rd copy onward (middle of 5 sets)
+    const offsetNormalized = normalized + singleSetWidth * 1; // Show from the 2nd copy onward (middle of 3 sets)
     
     container.style.transform = `translate3d(-${offsetNormalized}px, 0px, 0px)`;
     return normalized; // Return the base normalized value for state tracking
@@ -55,7 +55,7 @@ export const useSliderMovement = (containerRef, videos, styles) => {
         
         if (totalWidth > 0) {
           // Calculate the width of a single set of videos
-          const numberOfSets = 5; // Updated to match the new number of sets
+          const numberOfSets = 3; // Updated to match the new optimized number of sets
           const singleSetWidth = totalWidth / numberOfSets;
           
           // Start at a position that's comfortable within our infinite buffer
@@ -85,7 +85,7 @@ export const useSliderMovement = (containerRef, videos, styles) => {
     const container = containerRef.current;
     if (!container) return;
     
-    const scrollSpeed = 1.5; // Lleugerament reduït per compensar menys copies
+    const scrollSpeed = 2.0; // Augmentat lleugerament per compensar menys copies
     
     const scrollInterval = setInterval(() => {
       if (container && !isDragging && isAutoScrolling) {

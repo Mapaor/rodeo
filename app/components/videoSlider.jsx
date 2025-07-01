@@ -23,58 +23,72 @@ export default function VideoSlider() {
     handleTouchMove
   } = useSliderMovement(containerRef, videos, styles);
 
-  // Intersection Observer persistent - no es recrea durant drags
+  // Pre-connectar amb dominis de vídeos per millorar rendiment
+  useEffect(() => {
+    // Pre-connectar amb el domini d'Amazon S3 per als vídeos
+    const preconnectLink = document.createElement('link');
+    preconnectLink.rel = 'preconnect';
+    preconnectLink.href = 'https://bucket-general-public-marti.s3.eu-west-1.amazonaws.com';
+    document.head.appendChild(preconnectLink);
+
+    // DNS prefetch per altres dominis d'imatges
+    const dnsPrefetchLink = document.createElement('link');
+    dnsPrefetchLink.rel = 'dns-prefetch';
+    dnsPrefetchLink.href = 'https://images.unsplash.com';
+    document.head.appendChild(dnsPrefetchLink);
+
+    return () => {
+      // Cleanup links en el unmount
+      document.head.removeChild(preconnectLink);
+      document.head.removeChild(dnsPrefetchLink);
+    };
+  }, []);
+
+  // Intersection Observer optimitzat - menys complex
   useEffect(() => {
     if (!isInitialized) return;
 
-    // Crear Observer persistent que no es destrueix durant drags
+    // Observer més simple i eficient
     observerRef.current = new IntersectionObserver(
       (entries) => {
+        const updates = new Map();
+        
         entries.forEach((entry) => {
           const videoKey = entry.target.getAttribute('data-video-key');
           if (videoKey) {
-            setVisibleVideos(prev => {
-              const newSet = new Set(prev);
-              if (entry.isIntersecting) {
-                // Sempre permetre carregar videos quan són visibles
-                newSet.add(videoKey);
-              } else {
-                // Durant drag: mantenir tots els videos carregats
-                // Fora de drag: descarregar només si completament fora
-                if (!isDragging && entry.intersectionRatio === 0) {
-                  // Petit delay per evitar unload prematur
-                  setTimeout(() => {
-                    if (!isDragging) {
-                      setVisibleVideos(current => {
-                        const updated = new Set(current);
-                        updated.delete(videoKey);
-                        return updated;
-                      });
-                    }
-                  }, 300);
-                }
-              }
-              return newSet;
-            });
+            updates.set(videoKey, entry.isIntersecting);
           }
         });
+
+        if (updates.size > 0) {
+          setVisibleVideos(prev => {
+            const newSet = new Set(prev);
+            updates.forEach((isIntersecting, videoKey) => {
+              if (isIntersecting) {
+                newSet.add(videoKey);
+              } else if (!isDragging) {
+                // Només descarregar si no estem fent drag
+                newSet.delete(videoKey);
+              }
+            });
+            return newSet;
+          });
+        }
       },
       {
-        // Viewport més ampli per precarregar més videos
-        rootMargin: '400% 0px 400% 0px',
-        threshold: [0, 0.1, 0.5]
+        // Marges més raonables per millor rendiment
+        rootMargin: '100% 0px 100% 0px',
+        threshold: [0, 0.25]
       }
     );
 
-    // Observar tots els elements
-    const observeCards = () => {
+    // Observar elements amb un sol timeout
+    const timeoutId = setTimeout(() => {
       if (containerRef.current && observerRef.current) {
         const cards = containerRef.current.querySelectorAll('[data-video-key]');
         cards.forEach(card => observerRef.current.observe(card));
       }
-    };
-
-    const timeoutId = setTimeout(observeCards, 100);
+    }, 50);
 
     return () => {
       clearTimeout(timeoutId);
@@ -82,40 +96,24 @@ export default function VideoSlider() {
         observerRef.current.disconnect();
       }
     };
-  }, [isInitialized]); // Només depèn d'isInitialized
+  }, [isInitialized]);
 
-  // Cleanup aggressiu dels videos no visibles després del drag
+  // Cleanup simplificat després del drag
   useEffect(() => {
     if (dragEndTimeoutRef.current) {
       clearTimeout(dragEndTimeoutRef.current);
     }
 
     if (!isDragging && isInitialized) {
-      // Cleanup més aggressiu després del drag
+      // Cleanup més eficient després del drag
       dragEndTimeoutRef.current = setTimeout(() => {
+        // Forçar re-observació dels elements visibles
         if (containerRef.current && observerRef.current) {
-          // Forçar re-check de tots els elements
+          observerRef.current.disconnect();
           const cards = containerRef.current.querySelectorAll('[data-video-key]');
-          cards.forEach(card => {
-            const rect = card.getBoundingClientRect();
-            const viewportHeight = window.innerHeight;
-            const isInExtendedViewport = rect.bottom > -viewportHeight * 4 && rect.top < viewportHeight * 5;
-            
-            const videoKey = card.getAttribute('data-video-key');
-            if (videoKey) {
-              setVisibleVideos(prev => {
-                const newSet = new Set(prev);
-                if (isInExtendedViewport) {
-                  newSet.add(videoKey);
-                } else {
-                  newSet.delete(videoKey);
-                }
-                return newSet;
-              });
-            }
-          });
+          cards.forEach(card => observerRef.current.observe(card));
         }
-      }, 200);
+      }, 100);
     }
 
     return () => {
@@ -137,18 +135,18 @@ export default function VideoSlider() {
         style={{ 
           userSelect: 'none',
           opacity: isInitialized ? 1 : 0,
-          transition: isInitialized ? 'none' : 'opacity 0.1s ease-in'
+          transition: isInitialized ? 'none' : 'opacity 0.3s ease-in'
         }}
       >
-        {/* Render 25 copies (5 sets of 5 videos each) for infinite scrolling - reduced for performance */}
-        {Array.from({ length: 5 }, (_, setIndex) => 
+        {/* Render 15 copies (3 sets of 5 videos each) for infinite scrolling - optimized for performance */}
+        {Array.from({ length: 3 }, (_, setIndex) => 
           videos.map((video, videoIndex) => {
             const uniqueKey = `${video.id}-set${setIndex}-${videoIndex}`;
             const isVisible = visibleVideos.has(uniqueKey);
             const shouldChangeOnHover = video.preferenceDefault !== video.preferenceHover;
             
-            // Durant drag, ser més permissiu amb la càrrega
-            const shouldLoadVideo = isVisible || isDragging;
+            // Càrrega més agressiva per millorar rendiment inicial
+            const shouldLoadVideo = isVisible || setIndex === 1; // Sempre carregar el set del mig
             
             return (
               <a
@@ -189,21 +187,21 @@ export default function VideoSlider() {
                       <video
                         className={`${styles.video} ${styles.videoDefault}`}
                         src={video.videoSrc}
-                        preload="none"
+                        preload="metadata" // Precarregar metadades per velocitat
                         loop
                         muted
                         playsInline
                         draggable="false"
-                        autoPlay={isVisible} // Només autoplay si realment visible
-                        onLoadedData={(e) => {
-                          // Establir startTime quan el video carregui
+                        autoPlay // Sempre autoplay, es controla via CSS visibility
+                        onLoadedMetadata={(e) => {
+                          // Establir startTime quan les metadades carreguin
                           if (video.startTime && video.startTime > 0) {
                             e.target.currentTime = video.startTime;
                           }
                         }}
-                        onLoadStart={(e) => {
-                          // Establir startTime immediatament quan comenci a carregar
-                          if (video.startTime && video.startTime > 0) {
+                        onCanPlay={(e) => {
+                          // Assegurar que comença al temps correcte
+                          if (video.startTime && video.startTime > 0 && e.target.currentTime < video.startTime) {
                             e.target.currentTime = video.startTime;
                           }
                         }}
@@ -216,33 +214,32 @@ export default function VideoSlider() {
                       <video
                         className={`${styles.video} ${styles.videoHover}`}
                         src={video.videoSrc}
-                        preload="none"
+                        preload="metadata" // Precarregar metadades
                         loop
                         muted
                         playsInline
                         draggable="false"
-                        onMouseEnter={(e) => {
-                          // Carregar i reproduir el video al hover
-                          if (e.target.readyState === 0) {
-                            e.target.load();
+                        onLoadedMetadata={(e) => {
+                          // Establir startTime quan les metadades carreguin
+                          if (video.startTime && video.startTime > 0) {
+                            e.target.currentTime = video.startTime;
                           }
-                          
-                          const playVideo = () => {
-                            if (video.startTime && video.startTime > 0) {
-                              e.target.currentTime = video.startTime;
-                            }
+                        }}
+                        onMouseEnter={(e) => {
+                          // Reproduir immediatament si està carregat
+                          if (e.target.readyState >= 3) {
                             e.target.play().catch(err => console.log('Hover video play failed:', err));
-                          };
-
-                          if (e.target.readyState >= 2) {
-                            playVideo();
                           } else {
-                            e.target.addEventListener('canplay', playVideo, { once: true });
+                            // Carregar i reproduir
+                            e.target.load();
+                            e.target.addEventListener('canplay', () => {
+                              e.target.play().catch(err => console.log('Hover video play failed:', err));
+                            }, { once: true });
                           }
                         }}
                         onMouseLeave={(e) => {
                           e.target.pause();
-                          // Tornar al startTime o al principi
+                          // Tornar al startTime
                           if (video.startTime && video.startTime > 0) {
                             e.target.currentTime = video.startTime;
                           } else {

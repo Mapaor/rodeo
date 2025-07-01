@@ -8,7 +8,7 @@ const projects = {
         titleKey: 'slider.urban',
         directorKey: 'slider.maria',
         thumbnail: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=640&h=360&fit=crop&crop=center',
-        videoSrc: 'https://cdn.jsdelivr.net/gh/Mapaor/sample-videos@main/60s-720p/gtv-videos-bucket/BigBuckBunny.mp4',
+        videoSrc: 'https://bucket-general-public-marti.s3.eu-west-1.amazonaws.com/60s-720p/gtv-videos-bucket/BigBuckBunny.mp4',
         startTime: 30, // Començar als 30 segons
         aspectRatio: 1.778,
         preferenceDefault: 'videoSrc', // videoSrc o thumbnail
@@ -26,7 +26,7 @@ const projects = {
         titleKey: 'slider.music',
         directorKey: 'slider.carlos',
         thumbnail: 'https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?w=640&h=360&fit=crop&crop=center',
-        videoSrc: 'https://cdn.jsdelivr.net/gh/Mapaor/sample-videos@main/60s-720p/gtv-videos-bucket/ElephantsDream.mp4',
+        videoSrc: 'https://bucket-general-public-marti.s3.eu-west-1.amazonaws.com/60s-720p/gtv-videos-bucket/ElephantsDream.mp4',
         startTime: 10, // Reduït de 15 a 10 segons per evitar salts
         aspectRatio: 1.778,
         preferenceDefault: 'videoSrc', // videoSrc o thumbnail
@@ -44,7 +44,7 @@ const projects = {
         titleKey: 'slider.documentary',
         directorKey: 'slider.ana',
         thumbnail: 'https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=640&h=360&fit=crop&crop=center',
-        videoSrc: 'https://cdn.jsdelivr.net/gh/Mapaor/sample-videos@main/60s-720p/gtv-videos-bucket/Sintel.mp4',
+        videoSrc: 'https://bucket-general-public-marti.s3.eu-west-1.amazonaws.com/60s-720p/gtv-videos-bucket/Sintel.mp4',
         startTime: 45, // Començar als 45 segons
         aspectRatio: 1.778,
         preferenceDefault: 'videoSrc', // videoSrc o thumbnail
@@ -62,7 +62,7 @@ const projects = {
         titleKey: 'slider.commercial',
         directorKey: 'slider.david',
         thumbnail: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=640&h=360&fit=crop&crop=center',
-        videoSrc: 'https://cdn.jsdelivr.net/gh/Mapaor/sample-videos@main/60s-720p/gtv-videos-bucket/TearsOfSteel.mp4',
+        videoSrc: 'https://bucket-general-public-marti.s3.eu-west-1.amazonaws.com/60s-720p/gtv-videos-bucket/TearsOfSteel.mp4',
         aspectRatio: 1.778,
         preferenceDefault: 'videoSrc', // videoSrc o thumbnail
         preferenceHover: 'videoSrc', // videoSrc o thumbnail al fer hover
@@ -79,7 +79,7 @@ const projects = {
         titleKey: 'slider.brand',
         directorKey: 'slider.sofia',
         thumbnail: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=640&h=360&fit=crop&crop=center',
-        videoSrc: 'https://cdn.jsdelivr.net/gh/Mapaor/sample-videos@main/nasa-internet-archive/47-Hatch-opening.mp4',
+        videoSrc: 'https://bucket-general-public-marti.s3.eu-west-1.amazonaws.com/60s-720p/altres/sample-720p.mp4',
         aspectRatio: 1.778,
         preferenceDefault: 'videoSrc', // videoSrc o thumbnail
         preferenceHover: 'videoSrc', // videoSrc o thumbnail al fer hover
